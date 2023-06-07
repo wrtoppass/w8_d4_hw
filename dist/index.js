@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const User_1 = __importDefault(require("./User"));
+const Shop_1 = __importDefault(require("./Shop"));
+const shop = new Shop_1.default();
+const user = new User_1.default('William', 26);
+const items = shop.getItems();
+user.addToCart(items[0]);
+user.addToCart(items[1]);
+user.printCart();
+user.removeFromCart(items[0]);
+user.addToCart(items[2]);
+user.addToCart(items[2]);
+user.addToCart(items[2]);
+user.addToCart(items[2]);
+user.removeQuantityFromCart(items[2], 2);
+user.printCart();
+const totalPrice = user.cartTotal();
+console.log(`Cart Total: $${totalPrice}`);
